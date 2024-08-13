@@ -1,0 +1,23 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+    <title>User Activity Overview</title>  
+</head>  
+<body>  
+    <h1>User Activity Overview</h1>  
+    <p>Total Visits: {{ total_visits }}</p>  
+    <p>Visits to /admin/: {{ path_visits }}</p>  
+    <h2>Recent Visits</h2>  
+    <ul>  
+    {% for visit in recent_visits %}  
+        <li>{{ visit.user }} visited {{ visit.path }} at {{ visit.timestamp }}</li>  
+    {% endfor %}  
+    </ul>  
+    <h2>Visits per User</h2>  
+    <ul>  
+    {% for user in visits_per_user %}  
+        <li>{{ user.user__username }}: {{ user.visits }} visits</li>  
+    {% endfor %}  
+    </ul>  
+</body>  
+</html>
